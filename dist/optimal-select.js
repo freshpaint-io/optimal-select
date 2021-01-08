@@ -1454,8 +1454,8 @@ function checkChilds(priority, element, ignore, path) {
       if (!childPattern) {
         return console.warn('\n          Element couldn\'t be matched through strict ignore pattern!\n        ', child, ignore, childPattern);
       }
-      var pattern = '> ' + childPattern + ':nth-child(' + (i + 1) + ')';
-      path.unshift(pattern);
+      // var pattern = '> ' + childPattern + ':nth-child(' + (i + 1) + ')';
+      // path.unshift(pattern);
       return true;
     }
   }

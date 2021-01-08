@@ -46,8 +46,8 @@
   "scripts": {
     "prepublish": "npm run build",
     "check": "npm outdated -depth 0",
-    "build": "SET NODE_ENV=production node build",
-    "dev": "SET NODE_ENV=development node build",
+    "build": "export NODE_ENV=production node build",
+    "dev": "export NODE_ENV=development node build",
     "example": "open-url 'http:/localhost:8080/example' && http-server"
   }
 }

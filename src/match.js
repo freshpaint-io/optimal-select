@@ -268,8 +268,9 @@ function checkChilds (priority, element, ignore, path) {
           Element couldn\'t be matched through strict ignore pattern!
         `, child, ignore, childPattern)
       }
-      const pattern = `> ${childPattern}:nth-child(${i+1})`
-      path.unshift(pattern)
+      // FP: Don't allow nth-child
+      // const pattern = `> ${childPattern}:nth-child(${i+1})`
+      // path.unshift(pattern)
       return true
     }
   }
