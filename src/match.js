@@ -186,8 +186,10 @@ function findAttributesPattern (priority, element, ignore, parent = element.pare
     }
 
     if (attributeName === 'class') {
+      console.log('LIB>', 'class');
       let classNames = attributeValue.trim().split(/\s+/g)
       const classIgnore = ignore.class || defaultIgnore.class
+      console.log('LIB>', 'classIgnore', classIgnore.toString());
       if (classIgnore) {
         classNames = classNames.filter(className => !classIgnore(className))
       }
