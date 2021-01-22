@@ -172,8 +172,7 @@ function findAttributesPattern (priority, element, ignore, parent = element.pare
 
     const currentIgnore = (useNamedIgnore && ignore[attributeName]) || ignore.attribute
     const currentDefaultIgnore = (useNamedIgnore && defaultIgnore[attributeName]) || defaultIgnore.attribute
-    var skipIgnoreCheck = ['id', 'class'];
-    if (checkIgnore(currentIgnore, attributeName, attributeValue, currentDefaultIgnore) && skipIgnoreCheck.indexOf(attributeName) === -1) {
+    if (useNamedIgnore && checkIgnore(currentIgnore, attributeName, attributeValue, currentDefaultIgnore)) {
       continue
     }
 
