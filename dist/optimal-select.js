@@ -1352,7 +1352,7 @@ function findAttributesPattern(priority, element, ignore) {
 
     var currentIgnore = useNamedIgnore && ignore[attributeName] || ignore.attribute;
     var currentDefaultIgnore = useNamedIgnore && defaultIgnore[attributeName] || defaultIgnore.attribute;
-    if (useNamedIgnore && checkIgnore(currentIgnore, attributeName, attributeValue, currentDefaultIgnore)) {
+    if (['id', 'class'].indexOf(attributeName) === -1 && checkIgnore(currentIgnore, attributeName, attributeValue, currentDefaultIgnore)) {
       continue
     }
 
@@ -1362,7 +1362,11 @@ function findAttributesPattern(priority, element, ignore) {
     }
 
     if (attributeName === 'id') {
-      pattern = '#' + attributeValue;
+      if (!checkIgnore(currentIgnore, attributeName, attributeValue, currentDefaultIgnore)) {
+        pattern = '#' + attributeValue;
+      } else {
+        pattern = '';
+      }
     }
 
     if (attributeName === 'class') {
